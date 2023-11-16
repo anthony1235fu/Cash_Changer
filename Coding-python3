@@ -1,0 +1,31 @@
+def cash_changer():
+    cashamount = eval(input('Enter the total cash you wish to withdraw'))
+    hundred_dollar = cashamount // 100
+    twenty_dollar = (cashamount - hundred_dollar * 100) // 20
+    five_dollar = (cashamount - hundred_dollar * 100 - twenty_dollar * 20) // 5
+    cashremain = (cashamount - hundred_dollar * 100 - twenty_dollar * 20 - five_dollar * 5)
+    cashcount = cashremain * 100
+    gold_dollar = cashcount // 100
+    quarter = (cashcount - gold_dollar * 100) // 25
+    dime = (cashcount - gold_dollar * 100 - quarter * 25) // 10
+    nickel = (cashcount - gold_dollar * 100 - quarter * 25 - dime * 10) // 5
+    penny = cashcount - gold_dollar * 100 - quarter * 25 - dime * 10 - nickel * 5
+    value = [hundred_dollar, twenty_dollar, five_dollar, gold_dollar, quarter, dime, nickel, penny]
+    h = '%d hundred dollars' % value[0]
+    t = '%d twenty dollars' % value[1]
+    f = '%d five dollars' % value[2]
+    g = '%d gold dollars' % value[3]
+    q = '%d quarters' % value[4]
+    d = '%d dimes' % value[5]
+    n = '%d nickels' % value[6]
+    p = '%d pennies' % value[7]
+    sentence = [h,t,f,g,q,d,n,p]
+    i = 0
+    output = []
+    for i in range (0,8):
+        if value[i] == 0:
+            sentence[i]=0
+            i += 1
+        else:
+            output.append(sentence[i])
+    print('the cash change is', ','.join(output))
